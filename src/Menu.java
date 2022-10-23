@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public static String[] newElementMenu(){
+    public static Animals newElementMenu(){
         Scanner inNewElementText = new Scanner(System.in);
         System.out.println("Щоб додати новий елемент необхідно ввести його назву і колір");
         String[] newElement = new String[7];
@@ -21,16 +21,16 @@ public class Menu {
         System.out.println("Введіть де мешкає:");
         newElement[6] = inNewElementText.nextLine();
 
-        return newElement;
+        return Animals.CreateAnimals(newElement);
     }
 
 
-    public static String [][] AddElementInMenu(String[][] MenuList, String[] NewElementInMenu){
-        String[][] newMenuList = new String[MenuList.length + 1][];
+    public static Animals[] AddElementInMenu(Animals[] MenuList, Animals <Animals> NewElementInMenu){
+        Animals[] newMenuList = new Animals[MenuList.length + 1];
 
         for(int i=0; i<= newMenuList.length-1; i++) {
             if(i < newMenuList.length-1){
-                newMenuList[i] = MenuList[i];
+                newMenuList[i] =  MenuList[i];
             }
             else{
                 newMenuList[i] = NewElementInMenu;
@@ -40,9 +40,9 @@ public class Menu {
         return newMenuList;
     }
 
-    public static void PrintMenu(String [][] MenuList){
+    public static void PrintMenu(Animals[] MenuList){
         for(int i=1; i<=MenuList.length; i++)
-            System.out.println(i+" "+MenuList[i-1][0]);
+            System.out.println(i+". "+MenuList[i-1].getName());
     }
 
 
