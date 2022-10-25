@@ -1,6 +1,6 @@
 //import java.util.Comparator;
 
-public abstract class Animals<AnyAnimals> implements Cloneable/*, Comparator, Comparable*/ {
+public abstract class Animals<E> implements Cloneable/*, Comparator, Comparable*/ {
     private String Name;
     private String NameLat;
     private int YearOfFound;

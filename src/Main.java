@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidArrayException{
 
 
         //String [][] ArrAnimals = new String[][]{
@@ -27,7 +27,12 @@ public class Main {
         do{
 
             System.out.println("0. Щоб вийти");
-            Menu.PrintMenu(animals1);
+            try {
+                Menu.PrintMenu(animals1);
+            }
+            catch (NullPointerException E){
+                throw new InvalidArrayException("Не змогли вивести перелік тварин бо є нульові значення у масиві");
+            }
             System.out.println(animals1.length+1 + ". щоб додати новий елемент");
             System.out.println("Або введтіть номер тварини, щоб переглянути її докладніше");
 
